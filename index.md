@@ -1,5 +1,3 @@
-# notati.ai
-
 Notes for AI
 
 - norway/public-data
