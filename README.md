@@ -1,1 +1,1 @@
-Notes for AI. See [INDEX.md](INDEX.md)
+Notes for AI. See [index.md](index.md)
