@@ -94,7 +94,7 @@ Types: `KOMMUNE`, `FYLKE`, `VIRKSOMHET`, `ADMINISTRATIVENHET`, `AVDELING`, `UTVA
 
 ```bash
 # Journal entries about a topic
-/search?query=Sogndal&entity=Journalpost&limit=20&expand=journalenhet,korrespondansepart&sortBy=publisertDato&sortOrder=desc
+/search?query=<name>&entity=Journalpost&limit=20&expand=journalenhet,korrespondansepart&sortBy=publisertDato&sortOrder=desc
 
 # Meetings this week
 /search?entity=Moetemappe&moetedatoFrom=now/w&expand=journalenhet&limit=50
@@ -103,7 +103,7 @@ Types: `KOMMUNE`, `FYLKE`, `VIRKSOMHET`, `ADMINISTRATIVENHET`, `AVDELING`, `UTVA
 /search?journalposttype=inngaaende_dokument&standardDatoFrom=now-7d&limit=25&expand=journalenhet
 
 # Filter by sender/recipient
-/search?korrespondansepartNavn=Sogndal+kommune&expand=korrespondansepart&limit=10
+/search?korrespondansepartNavn=<name>&expand=korrespondansepart&limit=10
 ```
 
 ## Pitfalls

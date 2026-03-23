@@ -27,7 +27,7 @@ Every point has a reference like `EV6S21D1m12345`: `EV6` = road, `S21` = section
 ## Position lookup — Coordinate to road
 
 ```bash
-curl -s "https://nvdbapiles.atlas.vegvesen.no/posisjon?lat=59.911&lon=10.750&maks_avstand=50&srid=4326" \
+curl -s "https://nvdbapiles.atlas.vegvesen.no/posisjon?lat=<lat>&lon=<lon>&maks_avstand=50&srid=4326" \
   -H "X-Client: skill-test" -H "Accept: application/json"
 ```
 Returns nearest road's reference and position. **Note:** `vegsystemreferanse` may be empty if the coordinate isn't on a classified road — increase `maks_avstand` or check the coordinate.
@@ -56,7 +56,7 @@ Type details: `GET /vegobjekttyper/105` (shows property IDs for filtering)
 ## Query Road Objects
 
 ```bash
-curl -s "https://nvdbapiles.atlas.vegvesen.no/vegobjekter/105?vegsystemreferanse=EV6&kommune=5001&inkluder=egenskaper,lokasjon&segmentering=true&antall=100" \
+curl -s "https://nvdbapiles.atlas.vegvesen.no/vegobjekter/105?vegsystemreferanse=EV6&kommune=<kommunenr>&inkluder=egenskaper,lokasjon&segmentering=true&antall=100" \
   -H "X-Client: skill-test" -H "Accept: application/json"
 ```
 
@@ -91,15 +91,15 @@ Find property IDs via `/vegobjekttyper/{id}`.
 ## Common recipes
 
 ```bash
-# Speed limits on E6 through Trondheim
-/vegobjekter/105?vegsystemreferanse=EV6&kommune=5001&inkluder=egenskaper,lokasjon&segmentering=true&antall=1000
+# Speed limits on a road through a municipality
+/vegobjekter/105?vegsystemreferanse=EV6&kommune=<kommunenr>&inkluder=egenskaper,lokasjon&segmentering=true&antall=1000
 
-# All tunnels in Vestland
-/vegobjekter/581?fylke=46&inkluder=egenskaper,lokasjon&antall=100
+# All tunnels in a county
+/vegobjekter/581?fylke=<fylkenr>&inkluder=egenskaper,lokasjon&antall=100
 
 # Toll stations nationwide
 /vegobjekter/538?inkluder=egenskaper,lokasjon&antall=100
 
 # Which road is at this coordinate?
-/posisjon?lat=61.23&lon=7.10&maks_avstand=100&srid=4326
+/posisjon?lat=<lat>&lon=<lon>&maks_avstand=100&srid=4326
 ```

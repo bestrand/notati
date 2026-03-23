@@ -13,7 +13,7 @@ description: Query the Norwegian Meteorological Institute (MET / Meteorologisk i
 ## Locationforecast — Weather forecast
 
 ```bash
-curl -s "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=59.91&lon=10.75" \
+curl -s "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=<lat>&lon=<lon>" \
   -H "User-Agent: skill/1.0"
 ```
 
@@ -29,7 +29,7 @@ Returns GeoJSON with `properties.timeseries[]` — hourly for ~48h, then 6-hourl
 
 **For temp range forecasts**, use `complete` instead:
 ```bash
-curl -s "https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=59.91&lon=10.75" \
+curl -s "https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=<lat>&lon=<lon>" \
   -H "User-Agent: skill/1.0"
 ```
 
@@ -41,7 +41,7 @@ curl -s "https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=59.91&l
 ## Nowcast — Radar precipitation (next 2h)
 
 ```bash
-curl -s "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=59.91&lon=10.75" \
+curl -s "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=<lat>&lon=<lon>" \
   -H "User-Agent: skill/1.0"
 ```
 5-minute resolution, same structure. Check `precipitation_amount` in each step.
@@ -49,21 +49,10 @@ curl -s "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=59.91&lon=10.75"
 ## Sunrise / Sunset
 
 ```bash
-curl -s "https://api.met.no/weatherapi/sunrise/3.0/sun?lat=59.91&lon=10.75&date=2026-03-21&offset=+01:00" \
+curl -s "https://api.met.no/weatherapi/sunrise/3.0/sun?lat=<lat>&lon=<lon>&date=<YYYY-MM-DD>&offset=+01:00" \
   -H "User-Agent: skill/1.0"
 ```
 Returns `properties.sunrise.time`, `properties.sunset.time`, `properties.solarnoon`. Moon: use `/moon` endpoint.
-
-## Common coordinates
-
-| City | Lat | Lon |
-|---|---|---|
-| Oslo | 59.91 | 10.75 |
-| Bergen | 60.39 | 5.32 |
-| Trondheim | 63.43 | 10.40 |
-| Stavanger | 58.97 | 5.73 |
-| Tromsø | 69.65 | 18.96 |
-| Sogndal | 61.23 | 7.10 |
 
 ## Frost API (historical observations)
 

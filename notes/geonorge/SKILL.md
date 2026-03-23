@@ -11,7 +11,7 @@ description: Query Norwegian geographic data via Geonorge and Kartverket APIs. U
 ## 1. Stedsnavn (Place Names)
 
 ```bash
-curl -s "https://ws.geonorge.no/stedsnavn/v1/navn?sok=Sogndal&fuzzy=true&treffPerSide=10"
+curl -s "https://ws.geonorge.no/stedsnavn/v1/navn?sok=<name>&fuzzy=true&treffPerSide=10"
 ```
 
 **Parameters:** `sok` (search term), `fuzzy` (boolean), `treffPerSide` (results/page), `side` (page, 1-indexed), `navneobjekttype` (By, Tettsted, Bygd, Fjell, Fjord, Innsjø, Elv, Øy, Kommune), `fylkesnavn`, `kommunenavn`
@@ -21,7 +21,7 @@ curl -s "https://ws.geonorge.no/stedsnavn/v1/navn?sok=Sogndal&fuzzy=true&treffPe
 ## 2. Adresser (Address Search)
 
 ```bash
-curl -s "https://ws.geonorge.no/adresser/v1/sok?sok=Karl+Johans+gate+1+Oslo&treffPerSide=5"
+curl -s "https://ws.geonorge.no/adresser/v1/sok?sok=<address>&treffPerSide=5"
 ```
 
 **Parameters:** `sok` (free text), `adressenavn`, `nummer`, `postnummer`, `kommunenavn`, `kommunenummer`
@@ -30,7 +30,7 @@ curl -s "https://ws.geonorge.no/adresser/v1/sok?sok=Karl+Johans+gate+1+Oslo&tref
 
 **Reverse geocode:**
 ```bash
-curl -s "https://ws.geonorge.no/adresser/v1/punktsok?lat=59.911&lon=10.749&radius=50&treffPerSide=5"
+curl -s "https://ws.geonorge.no/adresser/v1/punktsok?lat=<lat>&lon=<lon>&radius=50&treffPerSide=5"
 ```
 
 ## 3. Kommuneinfo (Municipality)
@@ -40,10 +40,10 @@ curl -s "https://ws.geonorge.no/adresser/v1/punktsok?lat=59.911&lon=10.749&radiu
 curl -s "https://api.kartverket.no/kommuneinfo/v1/kommuner"
 
 # Single municipality
-curl -s "https://api.kartverket.no/kommuneinfo/v1/kommuner/4640"
+curl -s "https://api.kartverket.no/kommuneinfo/v1/kommuner/<kommunenr>"
 
 # Coordinate → municipality
-curl -s "https://api.kartverket.no/kommuneinfo/v1/punkt?nord=61.23&ost=7.10&koordsys=4258"
+curl -s "https://api.kartverket.no/kommuneinfo/v1/punkt?nord=<lat>&ost=<lon>&koordsys=4258"
 
 # All counties
 curl -s "https://api.kartverket.no/kommuneinfo/v1/fylker"
@@ -54,14 +54,14 @@ Reverse lookup returns: `kommunenummer`, `kommunenavn`, `fylkesnummer`, `fylkesn
 ## 4. Elevation
 
 ```bash
-curl -s "https://ws.geonorge.no/hoydedata/v1/punkt?nord=59.91&ost=10.75&koordsys=4258"
+curl -s "https://ws.geonorge.no/hoydedata/v1/punkt?nord=<lat>&ost=<lon>&koordsys=4258"
 ```
 Returns `{ "punkter": [{ "z": 42.5 }] }` — elevation in metres.
 
 ## 5. Coordinate Transformation
 
 ```bash
-curl -s "https://ws.geonorge.no/transformering/v1/transformer?fra=4326&til=25833&x=10.75&y=59.91"
+curl -s "https://ws.geonorge.no/transformering/v1/transformer?fra=4326&til=25833&x=<lon>&y=<lat>"
 ```
 
 | EPSG | System |

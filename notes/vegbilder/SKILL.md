@@ -35,7 +35,7 @@ Current year may not have images yet (photos taken spring–autumn). **Try curre
 ```json
 {
   "features": [{
-    "geometry": { "coordinates": [7.103, 61.228] },
+    "geometry": { "coordinates": [<lon>, <lat>] },
     "properties": {
       "URL": "https://s3vegbilder.atlas.vegvesen.no/...",
       "VEGKATEGORI": "E",

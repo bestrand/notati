@@ -48,7 +48,7 @@ Each variable needs a selection block:
 {
   "label": "Table title",
   "size": [1, 2, 5],
-  "dimension": { "Region": { "category": { "index": {"0301":0}, "label": {"0301":"Oslo"} } } },
+  "dimension": { "Region": { "category": { "index": {"<code>":0}, "label": {"<code>":"<name>"} } } },
   "value": [123, 456, ...]
 }
 ```

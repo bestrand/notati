@@ -72,5 +72,5 @@ curl -s "https://data.brreg.no/enhetsregisteret/api/enheter/923609016/roller" -H
 curl -s "https://data.brreg.no/enhetsregisteret/api/enheter?fraRegistreringsdatoEnhetsregisteret=2026-03-01&organisasjonsform=AS&size=20&sort=registreringsdatoEnhetsregisteret,desc" -H "Accept: application/json"
 
 # All AS in a municipality
-curl -s "https://data.brreg.no/enhetsregisteret/api/enheter?kommunenummer=4640&organisasjonsform=AS&size=100" -H "Accept: application/json"
+curl -s "https://data.brreg.no/enhetsregisteret/api/enheter?kommunenummer=<kommunenr>&organisasjonsform=AS&size=100" -H "Accept: application/json"
 ```
